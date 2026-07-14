@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>A Special Gift For Ayana</title>
+
+<!-- Google Fonts: display serif for headings, clean sans for body, script for signature -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500&family=Alex+Brush&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ============================================= -->
+<!-- AMBIENT LAYERS — persist across every screen   -->
+<!-- ============================================= -->
+<div id="ambient-root" aria-hidden="true">
+  <div id="stars-layer"></div>
+  <div id="petals-layer"></div>
+  <div id="particles-layer"></div>
+  <div id="glow-layer"></div>
+</div>
+
+<div id="cursor-glow" aria-hidden="true"></div>
+
+<!-- ============================================= -->
+<!-- MUSIC CONTROL                                  -->
+<!-- ============================================= -->
+<audio id="bg-music" src="assets/music/music.mp3" loop preload="none"></audio>
+<button id="music-toggle" aria-label="Play or pause music" aria-pressed="false">
+  <span id="music-icon">🎵</span>
+</button>
+
+<!-- ============================================= -->
+<!-- PROGRESS SEAL — the recurring signature motif  -->
+<!-- ============================================= -->
+<div id="seal-indicator" aria-hidden="true">
+  <svg viewBox="0 0 60 60">
+    <circle class="seal-ring" cx="30" cy="30" r="26"/>
+    <text x="30" y="37" text-anchor="middle" class="seal-mono">A•Y</text>
+  </svg>
+</div>
+
+<main id="app">
+
+  <!-- ============================================= -->
+  <!-- SCREEN 1 — THE GIFT BOX                        -->
+  <!-- ============================================= -->
+  <section id="screen-1" class="screen active" data-screen="1">
+    <div class="screen-inner">
+      <p class="eyebrow">untuk Ayana Kiera Audreana Putri Desingky</p>
+      <h1 class="title title-serif">A Special Gift For Ayana <span class="heart-mark">🤍</span></h1>
+      <p class="subtitle">I hope you'll open this with your heart.</p>
+
+      <button id="gift-box" class="gift-box" aria-label="Buka kadonya">
+        <div class="gift-lid">
+          <div class="gift-bow">
+            <span class="bow-loop bow-loop-left"></span>
+            <span class="bow-loop bow-loop-right"></span>
+            <span class="bow-knot"></span>
+          </div>
+        </div>
+        <div class="gift-body">
+          <span class="ribbon ribbon-vertical"></span>
+          <span class="gift-glow-burst"></span>
+        </div>
+        <div class="gift-light-rays" aria-hidden="true"></div>
+      </button>
+
+      <button id="btn-open-gift" class="btn btn-primary">Buka Kadonya</button>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCREEN 2 — THE ENVELOPE & LETTER               -->
+  <!-- ============================================= -->
+  <section id="screen-2" class="screen" data-screen="2">
+    <div class="screen-inner">
+
+      <div id="envelope" class="envelope">
+        <div class="envelope-back"></div>
+        <div class="letter-paper" id="letter-paper">
+          <div class="letter-scroll">
+            <p class="letter-salutation">Untuk Ayana Kiera Audreana Putri Desingky,</p>
+            <p id="typewriter-text" class="letter-body"></p>
+            <p class="letter-signoff">— Muhammad Yusaer Hadi Anwar</p>
+          </div>
+        </div>
+        <div class="envelope-flap"></div>
+        <div class="envelope-front"></div>
+        <div class="envelope-seal">
+          <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17"/><text x="20" y="26" text-anchor="middle">AY</text></svg>
+        </div>
+      </div>
+
+      <button id="btn-continue-2" class="btn btn-outline reveal-on-finish">Lanjut <span class="heart-mark">🤍</span></button>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCREEN 3 — PROMISES CHECKLIST                  -->
+  <!-- ============================================= -->
+  <section id="screen-3" class="screen" data-screen="3">
+    <div class="screen-inner">
+      <h2 class="title title-serif">Aku Berjanji</h2>
+
+      <ul class="promise-list" id="promise-list">
+        <li class="promise-item" data-delay="0">
+          <span class="check-box"><svg viewBox="0 0 24 24"><path class="check-path" d="M4 12.5L9.5 18L20 6"/></svg></span>
+          <span class="promise-text">Aku tidak akan bercanda seperti itu lagi.</span>
+        </li>
+        <li class="promise-item" data-delay="1">
+          <span class="check-box"><svg viewBox="0 0 24 24"><path class="check-path" d="M4 12.5L9.5 18L20 6"/></svg></span>
+          <span class="promise-text">Aku akan berusaha semaksimal mungkin menjaga hati Ayana.</span>
+        </li>
+        <li class="promise-item" data-delay="2">
+          <span class="check-box"><svg viewBox="0 0 24 24"><path class="check-path" d="M4 12.5L9.5 18L20 6"/></svg></span>
+          <span class="promise-text">Aku akan belajar menjadi pribadi yang lebih dewasa.</span>
+        </li>
+        <li class="promise-item" data-delay="3">
+          <span class="check-box"><svg viewBox="0 0 24 24"><path class="check-path" d="M4 12.5L9.5 18L20 6"/></svg></span>
+          <span class="promise-text">Aku akan berusaha menjadi seseorang yang pantas untuk dipercaya.</span>
+        </li>
+      </ul>
+
+      <button id="btn-continue-3" class="btn btn-primary reveal-on-finish">Aku Serius</button>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCREEN 4 — THE QUESTION                        -->
+  <!-- ============================================= -->
+  <section id="screen-4" class="screen" data-screen="4">
+    <div class="screen-inner">
+      <div id="heart-particles-4" class="heart-particles-field" aria-hidden="true"></div>
+      <h2 class="title title-serif title-large">Masih mau maafin aku?</h2>
+
+      <div class="choice-row">
+        <button id="btn-forgive-yes" class="btn btn-choice btn-choice-yes">🤍 Iya, aku maafin</button>
+        <button id="btn-forgive-no" class="btn btn-choice btn-choice-no">😢 Belum bisa</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCREEN 5A — SHE FORGAVE HIM                    -->
+  <!-- ============================================= -->
+  <section id="screen-5a" class="screen" data-screen="5a">
+    <div class="screen-inner">
+      <h2 class="title title-serif title-yay">YAYYY!! 🥹🤍</h2>
+
+      <div class="thanks-block">
+        <p>Terima kasih banyak...</p>
+        <p class="thanks-name">Ayana Kiera Audreana Putri Desingky.</p>
+        <p>Terima kasih sudah mau memaafkan aku.</p>
+        <p>Aku benar-benar bersyukur.</p>
+      </div>
+
+      <div id="reunite-block" class="reunite-block">
+        <h3 class="title title-serif">Mau balikan? ❤️</h3>
+        <div class="choice-row">
+          <button id="btn-reunite-a" class="btn btn-choice btn-choice-yes">🤍 Mau</button>
+          <button id="btn-reunite-b" class="btn btn-choice btn-choice-yes">🥹 Kita mulai lagi dari awal</button>
+        </div>
+      </div>
+
+      <div id="reunite-result" class="reunite-result">
+        <div class="beating-heart" aria-hidden="true">❤</div>
+        <p>Semoga ini menjadi awal yang lebih baik untuk kita berdua.</p>
+        <button id="btn-to-screen6-a" class="btn btn-outline">Lanjut <span class="heart-mark">🤍</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCREEN 5B — NOT YET                            -->
+  <!-- ============================================= -->
+  <section id="screen-5b" class="screen" data-screen="5b">
+    <div class="screen-inner">
+      <h2 class="title title-serif">Hiks... 😢</h2>
+      <div class="thanks-block">
+        <p>Tidak apa-apa.</p>
+        <p>Aku menghargai keputusan kamu.</p>
+        <p>Yang paling penting...</p>
+        <p>Kamu tahu kalau aku benar-benar sayang sama kamu.</p>
+        <p>Aku akan berusaha memperbaiki diriku.</p>
+        <p>Semoga suatu hari nanti luka itu benar-benar sembuh.</p>
+      </div>
+      <button id="btn-to-screen6-b" class="btn btn-outline">Lanjut</button>
+    </div>
+  </section>
+
+  <!-- ============================================= -->
+  <!-- SCREEN 6 — CLOSING                             -->
+  <!-- ============================================= -->
+  <section id="screen-6" class="screen" data-screen="6">
+    <div class="screen-inner">
+      <div class="night-sky" aria-hidden="true"></div>
+
+      <div class="closing-text" id="closing-text">
+        <p>Terima kasih ya...</p>
+        <p>Sudah meluangkan waktu untuk membaca semuanya sampai akhir.</p>
+        <p>Apa pun keputusanmu...</p>
+        <p>Aku akan tetap menghargainya.</p>
+        <p>Aku hanya ingin kamu tahu...</p>
+        <p>Kalau aku benar-benar sayang sama kamu.</p>
+        <p>Semoga Allah selalu menjaga, membahagiakan, dan memberikan yang terbaik untuk setiap langkahmu.</p>
+        <p>Terima kasih karena pernah menjadi bagian dari cerita yang sangat berarti untukku.</p>
+      </div>
+
+      <p class="closing-signature">— Muhammad Yusaer Hadi Anwar <span class="heart-mark">🤍</span></p>
+
+      <div class="beating-heart beating-heart-final" aria-hidden="true">❤</div>
+
+      <p class="the-end">THE END</p>
+    </div>
+  </section>
+
+</main>
+
+<script src="js/script.js"></script>
+</body>
+</html>
